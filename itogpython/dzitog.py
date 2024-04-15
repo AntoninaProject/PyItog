@@ -8,8 +8,8 @@
 # -название родительского каталога.
 #В процессе сбора сохраните данные в текстовый файл используя
 #логирование
-import  argparse
-from itogpython.dir_walker import walk_dir
+import argparse
+from dir_walker import dir_walker
 
 
 def parse_ars():
@@ -19,9 +19,8 @@ def parse_ars():
     return args.p
 
 def main():
-    for place in parse_ars():
-        for item in (walk_dir(place)):
-            print(repr(item))
+    path = parse_ars()[0]
+    dir_walker(path, ident=0)
 
 if __name__ == '__main__':
     main()
